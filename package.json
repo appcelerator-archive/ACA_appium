@@ -1,0 +1,44 @@
+{
+  "name": "ACA_appium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Commands/test.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "appium",
+    "titanium",
+    "ACA"
+  ],
+  "scripts": {
+    "lint": "eslint --config axway/env-node .",
+    "clean": "node ./Commands/Clean.js",
+    "test": "node ./Commands/Test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "appium": "^1.9.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-axway": "^2.0.14",
+    "eslint-plugin-mocha": "^5.0.0",
+    "fs-extra": "^2.0.0",
+    "get-folder-size": "^2.0.0",
+    "ioslib": "^2.2.3",
+    "mocha": "^3.5.3",
+    "mocha-filter": "^1.3.0",
+    "mocha-jenkins-reporter": "^0.3.10",
+    "node-resemble-js": "^0.2.0",
+    "path": "^0.12.7",
+    "png-crop": "0.0.2",
+    "request": "^2.83.0",
+    "tiapp.xml": "^0.2.2",
+    "wd": "^1.9.0"
+  },
+  "devDependencies": {}
+}

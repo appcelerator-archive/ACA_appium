@@ -1,0 +1,25 @@
+{
+    "extends": ["axway/env-node"],
+    "globals": {
+      "beforeEach",
+      "afterEach",
+      "describe",
+      "Cypress",
+      "context",
+      "expect",
+      "before",
+      "after",
+      "cy",
+      "it"
+    },
+    "rules": {
+      "no-unused-vars":["error", { "varsIgnorePattern": "MochaFilter|webdriver|driver"}],
+      "security/detect-non-literal-regexp":"off",
+      "security/detect-child-process":"off",
+      "security/detect-new-buffer":"off",
+      "appc.password.should.exist":"off",
+      "spaced-comment":"off",
+      "valid-jsdoc":"off",
+      "max-len":"off"
+    }
+}
