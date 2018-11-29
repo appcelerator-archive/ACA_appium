@@ -14,9 +14,13 @@ describe('iOS Simulator Test', () => {
 
 	it('Click the "Hello World" Text in the App', async () => {
 		await global.driver
-			.elementById('Hello, World')
+			.elementById('JAVASCRIPT')
 			.click()
-			.elementById('OK')
+			.elementById('Continue')
+			.click()
+			.elementById('NATIVE')
+			.click()
+			.elementById('Continue')
 			.isDisplayed().should.become(true);
 	});
 });
