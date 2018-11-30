@@ -12,15 +12,17 @@ describe('iOS Simulator Test', () => {
 		await Appium.startClient('simulator');
 	});
 
-	it('Click the "Hello World" Text in the App', async () => {
+	it('Crash the application', async () => {
 		await global.driver
 			.elementById('JAVASCRIPT')
 			.click()
-			.elementById('Continue')
+			.sleep(1000)
+			.elementById('CONTINUE')
 			.click()
+			.sleep(1000)
 			.elementById('NATIVE')
 			.click()
-			.elementById('Continue')
+			.elementById('CONTINUE')
 			.isDisplayed().should.become(true);
 	});
 });
