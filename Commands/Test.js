@@ -12,7 +12,6 @@ program
 	.option('-p, --platforms <platform1,platform2>', 'List the platforms that you want to run the suite for. Defaults to \'iOS\' and \'Android\'.', 'iOS,Android')
 	.option('-l, --logging <level>', 'Set the amount of Output returned by the process, options are \'debug\' and \'basic\'. Defaults to \'basic\'.', 'basic')
 	.option('-A, --address <ip>', 'The IP address for where the Appium server is. Defaults to localhost', 'localhost')
-	.option('-r, --release <release_type>', 'The release type to use, GA or RC. Defaults to to GA', 'GA')
 	.option('-P, --port <port>', 'The port that the Appium server will run on. Defaults to 4723', 4723)
 	.option('-c, --cli <cli_version>', 'CLI version to test against. Defaults to latest', 'latest')
 	.option('-s, --sdk <sdk_version>', 'SDK version to test against. Defaults to latest', 'latest')
@@ -38,15 +37,6 @@ Output.setupLogDir(err => {
 		process.exit();
 	}
 });
-
-let
-	release = program.release,
-	suppReleases = [ 'GA', 'RC' ];
-
-if (!suppReleases.includes(release)) {
-	Output.error(`'${release}' is not a valid release type.`);
-	process.exit();
-}
 
 // Set the global for the hostOS to the current OS being run on
 switch (process.platform) {
@@ -130,7 +120,6 @@ function platformRun() {
 			p = p
 				// Set the global property for platformOS
 				.then(() => global.platformOS = platform)
-				.then(() => Output.banner('Here'))
 				// Display information for the test that is about to be conducted
 				.then(() => Output.banner(`Running For Platform '${platform}'`))
 				// Create the build directory
