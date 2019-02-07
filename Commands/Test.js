@@ -6,6 +6,9 @@ const
 	tiapp = require('ti-appium'),
 	program = require('commander');
 
+// Import the project environment variables
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
+
 const appc = require('../Config/Test_Config.js').appc;
 
 program
@@ -86,8 +89,6 @@ async function run() {
 		const
 			appcRoot = path.join(global.projRoot, 'Build', `${host}-${guest}`),
 			testPath = path.join(global.projRoot, 'Tests', `${host}-${guest}`),
-			packageRoot = path.join(appcRoot, 'Package'),
-			moduleRoot = path.join(appcRoot, 'Module'),
 			appRoot = path.join(appcRoot, 'App');
 
 		fs.emptyDirSync(appcRoot);
