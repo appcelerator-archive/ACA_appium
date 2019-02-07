@@ -12,9 +12,9 @@ exports.androidEm = {
 
 exports.app = {
 	apiLevel: '28',
-	name: 'AppiumSmoke',
-	package: 'com.appc.appiumsmoke',
-	activity: '.AppiumsmokeActivity'
+	name: 'acaTesting',
+	package: 'com.appc.acatesting',
+	activity: '.AcatestingActivity'
 };
 
 exports.appc = {
