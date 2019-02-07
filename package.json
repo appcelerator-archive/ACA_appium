@@ -21,14 +21,15 @@
   "license": "ISC",
   "homepage": "",
   "dependencies": {
+    "commander": "^2.19.0",
+    "dotenv": "^6.2.0",
     "fs-extra": "^2.0.0",
-    "get-folder-size": "^2.0.0",
-    "ti-appium": "^1.0.2",
-    "tiapp.xml": "^0.2.2",
-    "dotenv": "^6.2.0"
+    "get-folder-size": "^2.0.1",
+    "ti-appium": "^1.0.13",
+    "tiapp.xml": "^0.2.2"
   },
-   "devDependencies": {
-      "eslint": "^4.19.1",
-      "eslint-config-axway": "^2.0.14"
-    }
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-axway": "^2.0.14"
+  }
 }

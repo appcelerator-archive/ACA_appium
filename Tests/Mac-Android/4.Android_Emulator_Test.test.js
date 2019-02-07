@@ -1,15 +1,35 @@
 'use strict';
 
 const
-	Appium = require('../../Helpers/Appium_Helper.js');
+	path = require('path'),
+	tiapp = require('ti-appium');
+// MochaFilter = require('mocha-filter')(global.filters);
+
+const app = require('../../Config/Test_Config.js').app;
+const device = require('../../Config/Test_Config.js').androidEm;
 
 describe('Android Studio Emulator Test', () => {
-	after(async () => {
-		await Appium.stopClient('emulator');
+	before(async () => {
+		const
+			appRoot = path.join(global.projRoot, 'Build', 'Mac-Android', 'App', app.name),
+			appPath = tiapp.createAppPath(appRoot, 'android', app.name);
+
+		await tiapp.bootEmulator(device.name);
+
+		await tiapp.startClient({
+			app: appPath,
+			platformName: 'Android',
+			deviceName: device.name,
+			platformVersion: device.version,
+			appPackage: app.package,
+			appActivity: app.activity
+		});
 	});
 
-	before(async () => {
-		await Appium.startClient('emulator');
+	after(async () => {
+		await tiapp.stopClient();
+
+		await tiapp.killEmulator(device.name);
 	});
 
 	it('Crash the application', async () => {
@@ -18,7 +38,11 @@ describe('Android Studio Emulator Test', () => {
 			.click()
 			.elementByAndroidUIAutomator('new UiSelector().text("Continue")')
 			.click()
+			.elementByAndroidUIAutomator('new UiSelector().text("Continue")')
+			.click()
 			.elementByAndroidUIAutomator('new UiSelector().text("NATIVE")')
+			.click()
+			.elementByAndroidUIAutomator('new UiSelector().text("Continue")')
 			.click()
 			.elementByAndroidUIAutomator('new UiSelector().text("Continue")')
 			.isDisplayed().should.become(true);

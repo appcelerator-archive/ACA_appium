@@ -1,15 +1,31 @@
 'use strict';
 
 const
-	Appium = require('../../Helpers/Appium_Helper.js');
+	path = require('path'),
+	tiapp = require('ti-appium');
+// MochaFilter = require('mocha-filter')(global.filters);
+
+const app = require('../../Config/Test_Config.js').app;
+const device = require('../../Config/Test_Config.js').iosSim;
 
 describe('iOS Simulator Test', () => {
-	after(async () => {
-		await Appium.stopClient('simulator');
+	before(async () => {
+		const
+			appRoot = path.join(global.projRoot, 'Build', 'Mac-iOS', 'App', app.name),
+			appPath = tiapp.createAppPath(appRoot, 'ios', app.name);
+
+		await tiapp.startClient({
+			app: appPath,
+			platformName: 'iOS',
+			deviceName: device.name,
+			platformVersion: device.version
+		});
 	});
 
-	before(async () => {
-		await Appium.startClient('simulator');
+	after(async () => {
+		await tiapp.stopClient();
+
+		await tiapp.killSimulator();
 	});
 
 	it('Crash the application', async () => {
