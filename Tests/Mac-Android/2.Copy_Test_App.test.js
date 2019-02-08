@@ -1,12 +1,12 @@
 'use strict';
 
 const
-	Appc = require('../../Helpers/Appc_Helper.js');
+	helper = require('../../Helpers/Helper.js');
+// MochaFilter = require('mocha-filter')(global.filters);
 
 describe('Copy test file to created app', () => {
 	it('Copy test file to created app', async () => {
 
-		await Appc.copyTestApp();
-
+		helper.copyTestApp('Mac-Android');
 	});
 });
