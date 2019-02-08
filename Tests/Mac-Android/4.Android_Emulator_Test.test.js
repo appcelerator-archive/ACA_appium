@@ -11,7 +11,7 @@ const device = require('../../Config/Test_Config.js').androidEm;
 describe('Android Studio Emulator Test', () => {
 	before(async () => {
 		const
-			appRoot = path.join(global.projRoot, 'Build', 'Mac-Android', 'App', app.name),
+			appRoot = path.join(global.projRoot, 'Build', 'Mac-Android', app.name),
 			appPath = tiapp.createAppPath(appRoot, 'android', app.name);
 
 		await tiapp.bootEmulator(device.name);

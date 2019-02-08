@@ -14,7 +14,7 @@ class Helper {
 	static copyTestApp(platform) {
 		return new Promise((resolve, reject) => {
 			const
-				appRoot = path.join(global.projRoot, 'Build', platform, 'App', app.name),
+				appRoot = path.join(global.projRoot, 'Build', platform, app.name),
 				filePath = path.join(appRoot, 'Resources', 'app.js'),
 				testApp = path.join(global.projRoot, 'Config', 'Support', 'app.js');
 

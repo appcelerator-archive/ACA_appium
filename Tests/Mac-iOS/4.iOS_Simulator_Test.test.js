@@ -11,7 +11,7 @@ const device = require('../../Config/Test_Config.js').iosSim;
 describe('iOS Simulator Test', () => {
 	before(async () => {
 		const
-			appRoot = path.join(global.projRoot, 'Build', 'Mac-iOS', 'App', app.name),
+			appRoot = path.join(global.projRoot, 'Build', 'Mac-iOS', app.name),
 			appPath = tiapp.createAppPath(appRoot, 'ios', app.name);
 
 		await tiapp.startClient({

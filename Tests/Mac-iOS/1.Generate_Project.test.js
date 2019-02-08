@@ -14,7 +14,7 @@ const
 describe('Generate Project', () => {
 	it('Generate a New Project', async () => {
 		const
-			appRoot = path.join(global.projRoot, 'Build', 'Mac-iOS', 'App', app.name),
+			appRoot = path.join(global.projRoot, 'Build', 'Mac-iOS', app.name),
 			tiappPath = path.join(appRoot, 'tiapp.xml');
 
 		const args = [ 'new', '--quiet', '--no-banner', '--no-prompt', '--classic' ];

@@ -12,7 +12,7 @@ const app = require('../../Config/Test_Config.js').app;
 describe('Build App For Virtual Device', () => {
 	it('Build the Application', async () => {
 		const
-			appRoot = path.join(global.projRoot, 'Build', 'Mac-iOS', 'App', app.name);
+			appRoot = path.join(global.projRoot, 'Build', 'Mac-iOS', app.name);
 
 		await tiapp.buildApp(appRoot, 'ios');
 

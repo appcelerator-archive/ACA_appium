@@ -72,6 +72,7 @@ async function run() {
 		await tiapp.startAppium(global.projRoot, { hostname: program.address, port: program.port });
 	} catch (err) {
 		tiapp.error(err);
+		process.exit(1);
 	}
 	for (const platform of platforms) {
 		let guest;
@@ -88,11 +89,9 @@ async function run() {
 
 		const
 			appcRoot = path.join(global.projRoot, 'Build', `${host}-${guest}`),
-			testPath = path.join(global.projRoot, 'Tests', `${host}-${guest}`),
-			appRoot = path.join(appcRoot, 'App');
+			testPath = path.join(global.projRoot, 'Tests', `${host}-${guest}`);
 
 		fs.emptyDirSync(appcRoot);
-		fs.ensureDirSync(appRoot);
 
 		await tiapp.test(testPath, global.projRoot);
 	}

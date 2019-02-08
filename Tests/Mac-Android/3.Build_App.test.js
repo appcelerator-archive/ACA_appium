@@ -12,7 +12,7 @@ const app = require('../../Config/Test_Config.js').app;
 describe('Build App For Virtual Device', () => {
 	it('Build the Application', async () => {
 		const
-			appRoot = path.join(global.projRoot, 'Build', 'Mac-Android', 'App', app.name),
+			appRoot = path.join(global.projRoot, 'Build', 'Mac-Android', app.name),
 			appPath = tiapp.createAppPath(appRoot, 'android', app.name),
 			logPath = path.join(appRoot, 'build', 'build_android.log');
 
