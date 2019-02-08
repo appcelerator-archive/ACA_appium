@@ -92,8 +92,6 @@ async function run() {
 			appRoot = path.join(appcRoot, 'App');
 
 		fs.emptyDirSync(appcRoot);
-		fs.ensureDirSync(packageRoot);
-		fs.ensureDirSync(moduleRoot);
 		fs.ensureDirSync(appRoot);
 
 		await tiapp.test(testPath, global.projRoot);
